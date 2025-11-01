@@ -16,64 +16,61 @@ import { Gear } from "phosphor-react/dist";
 import { faker } from "@faker-js/faker";
 import useSettings from "../../hooks/useSettings.jsx";
 
-
-
 const DashboardLayout = () => {
-  const {onToggleMode}=useSettings()
+  const { onToggleMode } = useSettings();
 
   const AntSwitch = styled(Switch)(({ theme }) => ({
-  width: 40,
-  height: 20,
-  padding: 1,
-  display: 'flex',
-  '&:active': {
-    '& .MuiSwitch-thumb': {
-      width: 40,
-    },
-    '& .MuiSwitch-switchBase.Mui-checked': {
-      transform: 'translateX(9px)',
-    },
-  },
-  '& .MuiSwitch-switchBase': {
-    padding: 2,
-    '&.Mui-checked': {
-      transform: 'translateX(20px)',
-      color: '#fff',
-      '& + .MuiSwitch-track': {
-        opacity: 1,
-        backgroundColor: '#1890ff',
-        ...theme.applyStyles('dark', {
-          backgroundColor: '#177ddc',
-        }),
+    width: 40,
+    height: 20,
+    padding: 1,
+    display: "flex",
+    "&:active": {
+      "& .MuiSwitch-thumb": {
+        width: 40,
+      },
+      "& .MuiSwitch-switchBase.Mui-checked": {
+        transform: "translateX(9px)",
       },
     },
-  },
-  '& .MuiSwitch-thumb': {
-    boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    transition: theme.transitions.create(['width'], {
-      duration: 200,
-    }),
-  },
-  '& .MuiSwitch-track': {
-    borderRadius: 20 / 2,
-    opacity: 1,
-    backgroundColor: 'rgba(0,0,0,.25)',
-    boxSizing: 'border-box',
-    ...theme.applyStyles('dark', {
-      backgroundColor: 'rgba(255,255,255,.35)',
-    }),
-  },
-}));
-
+    "& .MuiSwitch-switchBase": {
+      padding: 2,
+      "&.Mui-checked": {
+        transform: "translateX(20px)",
+        color: "#fff",
+        "& + .MuiSwitch-track": {
+          opacity: 1,
+          backgroundColor: "#1890ff",
+          ...theme.applyStyles("dark", {
+            backgroundColor: "#177ddc",
+          }),
+        },
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
+      width: 16,
+      height: 16,
+      borderRadius: 8,
+      transition: theme.transitions.create(["width"], {
+        duration: 200,
+      }),
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 20 / 2,
+      opacity: 1,
+      backgroundColor: "rgba(0,0,0,.25)",
+      boxSizing: "border-box",
+      ...theme.applyStyles("dark", {
+        backgroundColor: "rgba(255,255,255,.35)",
+      }),
+    },
+  }));
 
   const theme = useTheme();
   console.log(theme);
   const [index, setIndex] = useState(0);
   return (
-    <>
+    <Box sx={{ display: "flex", width: "100%", height: "100%" }}>
       <Box
         p={2}
         sx={{
@@ -125,7 +122,13 @@ const DashboardLayout = () => {
                   </Box>
                 ) : (
                   <IconButton
-                    sx={{ width: "max-content", color: theme.palette.mode==="light"? "#000":theme.palette.text.primary }}
+                    sx={{
+                      width: "max-content",
+                      color:
+                        theme.palette.mode === "light"
+                          ? "#000"
+                          : theme.palette.text.primary,
+                    }}
                     key={element.index}
                     onClick={() => {
                       setIndex(element.index);
@@ -146,11 +149,19 @@ const DashboardLayout = () => {
                   }}
                 >
                   <IconButton sx={{ color: "#fff" }}>
-                    <Gear/>
+                    <Gear />
                   </IconButton>
                 </Box>
               ) : (
-                <IconButton sx={{ color: theme.palette.mode==="light"? "#000":theme.palette.text.primary }} onClick={() => setIndex(3)}>
+                <IconButton
+                  sx={{
+                    color:
+                      theme.palette.mode === "light"
+                        ? "#000"
+                        : theme.palette.text.primary,
+                  }}
+                  onClick={() => setIndex(3)}
+                >
                   <Gear />
                 </IconButton>
               )}
@@ -158,13 +169,20 @@ const DashboardLayout = () => {
           </Stack>
           <Stack alignContent={"center"} width={"100%"} spacing={4}>
             {/* switch */}
-            <AntSwitch checked={theme.palette.mode==="dark"} onChange={()=>{onToggleMode()}} />
-          <Avatar src={faker.image.avatar()} />
+            <AntSwitch
+              checked={theme.palette.mode === "dark"}
+              onChange={() => {
+                onToggleMode();
+              }}
+            />
+            <Avatar src={faker.image.avatar()} />
           </Stack>
         </Stack>
       </Box>
-      <Outlet />
-    </>
+      <Box sx={{ flexGrow: 1, height: "100vh"}}>
+        <Outlet />
+      </Box>
+    </Box>
   );
 };
 
