@@ -2,15 +2,15 @@ import { Suspense, lazy } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 
 // layouts
-import DashboardLayout from "../layouts/dashboard/index";
+import DashboardLayout from "../layouts/dashboard/index.jsx";
 
 // config
 import { DEFAULT_PATH } from "../config";
-import LoadingScreen from "../components/LoadingScreen";
+
 
 const Loadable = (Component) => (props) => {
   return (
-    <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={<div>loading</div>}>
       <Component {...props} />
     </Suspense>
   );
@@ -34,6 +34,6 @@ export default function Router() {
 }
 
 const GeneralApp = Loadable(
-  lazy(() => import("../pages/dashboard/GenralApp")),
+  lazy(() => import("../pages/dashboard/GenralApp.jsx")),
 );
-const Page404 = Loadable(lazy(() => import("../pages/Page404")));
+const Page404 = Loadable(lazy(() => import("../pages/Page404.jsx")));

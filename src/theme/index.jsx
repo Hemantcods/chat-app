@@ -8,12 +8,12 @@ import {
   StyledEngineProvider,
 } from "@mui/material/styles";
 // hooks
-import useSettings from "../hooks/useSettings.js";
+import useSettings from "../hooks/useSettings.jsx";
 //
-import palette from "./palette";
-import typography from "./typography";
-import breakpoints from "./breakpoints";
-import componentsOverride from "./overrides";
+import palette from "./palette.js";
+import typography from "./typography.js";
+import breakpoints from "./breakpoints.js";
+import componentsOverride from "./overrides/index.jsx";
 import shadows, { customShadows } from "./shadow.js";
 
 // ----------------------------------------------------------------------

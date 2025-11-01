@@ -2,9 +2,9 @@
 import { styled } from '@mui/material/styles';
 import { Grid, RadioGroup, CardActionArea } from '@mui/material';
 // hooks
-import useSettings from '../../../hooks/useSettings';
+import useSettings from '../../../hooks/useSettings.jsx';
 //
-import Iconify from '../../Iconify';
+import Iconify from '../../Iconify.jsx';
 import BoxMask from './BoxMask';
 
 // ----------------------------------------------------------------------
@@ -31,7 +31,7 @@ export default function SettingDirection() {
           const isSelected = themeDirection === direction;
 
           return (
-            <Grid key={direction} item xs={6}>
+            <Grid key={direction}  >
               <BoxStyle
                 sx={{
                   ...(isSelected && {

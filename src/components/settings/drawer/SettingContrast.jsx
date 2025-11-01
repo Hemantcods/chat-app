@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import { Grid, RadioGroup, CardActionArea } from '@mui/material';
 // hooks
-import useSettings from '../../../hooks/useSettings';
+import useSettings from '../../../hooks/useSettings.jsx';
 //
 import Iconify from '../../Iconify';
 import BoxMask from './BoxMask';
@@ -31,7 +31,7 @@ export default function SettingContrast() {
           const isSelected = themeContrast === contrast;
 
           return (
-            <Grid key={contrast} item xs={6}>
+            <Grid key={contrast} >
               <BoxStyle
                 sx={{
                   ...(isSelected && {

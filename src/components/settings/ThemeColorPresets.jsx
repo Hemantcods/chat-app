@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 // @mui
 import { alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 // hooks
-import useSettings from '../../hooks/useSettings';
+import useSettings from '../../hooks/useSettings.jsx';
 //
 import componentsOverride from '../../theme/overrides/index';
 

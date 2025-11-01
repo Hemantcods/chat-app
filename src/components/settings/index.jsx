@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 //
-import SettingsDrawer from './drawer/index';
+import SettingsDrawer from './drawer/index.jsx';
 //
-import ThemeContrast from './ThemeContrast';
-import ThemeRtlLayout from './ThemeRtLayout';
-import ThemeColorPresets from './ThemeColorPresets';
-import ThemeLocalization from './ThemeLocalization';
+import ThemeContrast from './ThemeContrast.jsx';
+import ThemeRtlLayout from './ThemeRtLayout.jsx';
+import ThemeColorPresets from './ThemeColorPresets.jsx';
+import ThemeLocalization from './ThemeLocalization.jsx';
 
 // ----------------------------------------------------------------------
 

@@ -11,11 +11,15 @@ import {
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico";
-import { Nav_Buttons } from "../../data";
+import { Nav_Buttons } from "../../data/index.jsx";
 import { Gear } from "phosphor-react/dist";
 import { faker } from "@faker-js/faker";
-import usesettings from "../../hooks/useSettings"
+import useSettings from "../../hooks/useSettings.jsx";
+
+
+
 const DashboardLayout = () => {
+  const {onToggleMode}=useSettings()
 
   const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 40,
@@ -64,7 +68,7 @@ const DashboardLayout = () => {
   },
 }));
 
-  const {onToggleMode}=usesettings()
+
   const theme = useTheme();
   console.log(theme);
   const [index, setIndex] = useState(0);
@@ -96,7 +100,7 @@ const DashboardLayout = () => {
                 borderRadius: 1.5,
               }}
             >
-              <img src={Logo} alt="Chat app" />
+              <img width={"100%"} src={Logo} alt="Chat app" />
             </Box>
             <Stack
               spacing={3}

@@ -1,6 +1,6 @@
 // provider === component
 import { createContext, useEffect } from "react";
-import { defaultSettings } from "../config";
+import { defaultSettings } from "../config.jsx";
 import useLocalStorage from "../hooks/useLocalStorage";
 import getColorPresets, {
   defaultPreset,
@@ -203,6 +203,6 @@ const SettingsProvider = ({ children }) => {
   );
 };
 
-export {SettingsContext};
+export { SettingsContext };
 
 export default SettingsProvider;
