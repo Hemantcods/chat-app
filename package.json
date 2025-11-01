@@ -50,6 +50,10 @@
     ]
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.5.0"
+    "@faker-js/faker": "^10.1.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "vite": "^7.1.7"
   }
 }
