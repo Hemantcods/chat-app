@@ -77,14 +77,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const ChatElemet = ({ id, img, name, msg, time, unread, pinned, online }) => {
     const theme=useTheme()
-    console.log(theme.palette.background.default);
-    
   return (
     <Box
       sx={{
         width: "100%",
         borderRadius: 1,
-        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.paper,
+        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.default,
       }}
       p={2}
     >
@@ -129,7 +127,7 @@ function Chats() {
       sx={{
         position: "relative",
         width: 320,
-        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.default,
+        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.paper,
         boxShadow: "0px 0px 2px rgba(0,0,0,0.25)",
       }}
     >
@@ -162,7 +160,7 @@ function Chats() {
         <Stack
           direction={"column"}
           spacing={2}
-          sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}
+          sx={{ flexGrow: 1, overflow:"auto", height: "100%" }}
         >
           <SimpleBarStyle timeout={500} clickOnTrack={false}>
             <Stack spacing={2}>

@@ -70,7 +70,7 @@ const DashboardLayout = () => {
   console.log(theme);
   const [index, setIndex] = useState(0);
   return (
-    <Box sx={{ display: "flex", width: "100%", height: "100%" }}>
+    <Stack direction={"row"} sx={{ display: "flex", width: "100%", height: "100%" }}>
       <Box
         p={2}
         sx={{
@@ -179,10 +179,8 @@ const DashboardLayout = () => {
           </Stack>
         </Stack>
       </Box>
-      <Box sx={{ flexGrow: 1, height: "100vh"}}>
-        <Outlet />
-      </Box>
-    </Box>
+      <Outlet/>
+    </Stack>
   );
 };
 
