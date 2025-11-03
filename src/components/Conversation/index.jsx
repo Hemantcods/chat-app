@@ -1,6 +1,7 @@
 import { Box, Stack, useTheme } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
+import Message from "./Message";
 
 function Conversation() {
   const theme = useTheme();
@@ -9,7 +10,9 @@ function Conversation() {
       {/* chat header */}
       <Header />
       {/* messgae */}
-      <Box width={"100%"} sx={{ flexGrow: 1 }}></Box>
+      <Box width={"100%"} sx={{ flexGrow: 1 }}>
+        <Message />
+      </Box>
       {/* chat footer */}
       <Footer />
     </Stack>
