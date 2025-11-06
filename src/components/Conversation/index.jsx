@@ -6,11 +6,11 @@ import Message from "./Message";
 function Conversation() {
   const theme = useTheme();
   return (
-    <Stack height={"100%"} maxHeight={"100vh"}>
+    <Stack height={"100%"} maxHeight={"100vh"} >
       {/* chat header */}
       <Header />
       {/* messgae */}
-      <Box width={"100%"} sx={{ flexGrow: 1 }}>
+      <Box width={"100%"} sx={{ flexGrow: 1,overflow:"auto" }}>
         <Message />
       </Box>
       {/* chat footer */}
