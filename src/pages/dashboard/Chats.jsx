@@ -82,7 +82,7 @@ const ChatElemet = ({ id, img, name, msg, time, unread, pinned, online }) => {
       sx={{
         width: "100%",
         borderRadius: 1,
-        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.default,
+        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.paper,
       }}
       p={2}
     >
@@ -127,7 +127,7 @@ function Chats() {
       sx={{
         position: "relative",
         width: 320,
-        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.paper,
+        backgroundColor: theme.palette.mode==="light"? "#ffff":theme.palette.background.default,
         boxShadow: "0px 0px 2px rgba(0,0,0,0.25)",
       }}
     >
