@@ -10,7 +10,7 @@ function Conversation() {
       {/* chat header */}
       <Header />
       {/* messgae */}
-      <Box width={"100%"} sx={{ flexGrow: 1,overflow:"auto" }}>
+      <Box width={"100%"} sx={{ flexGrow: 1,overflow:"auto",scroll }}>
         <Message />
       </Box>
       {/* chat footer */}
