@@ -3,13 +3,15 @@ import {
   Box,
   Divider,
   IconButton,
+  Menu,
+  MenuItem,
   Stack,
   useTheme,
 } from "@mui/material";
 import { Gear } from "phosphor-react";
 import React, { useState } from "react";
 import Logo from "../../assets/Images/logo.ico";
-import { Nav_Buttons } from "../../data/index.jsx";
+import { Nav_Buttons, Profile_Menu } from "../../data/index.jsx";
 import { faker } from "@faker-js/faker";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch.jsx";
@@ -18,6 +20,15 @@ function SideBar() {
   const theme = useTheme();
   const { onToggleMode } = useSettings();
   const [index, setIndex] = useState();
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Box
       p={2}
@@ -123,7 +134,33 @@ function SideBar() {
               onToggleMode();
             }}
           />
-          <Avatar src={faker.image.avatar()} />
+          <Avatar
+            id="basic-button"
+            aria-controls={open ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}
+            src={faker.image.avatar()}
+          />
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            slotProps={{
+              list: {
+                "aria-labelledby": "basic-button",
+              },
+            }}
+            anchorOrigin={{vertical:"bottom",horizontal:"right"}}
+            transformOrigin={{vertical:"bottom",horizontal:"left"}}
+          >
+            <Stack spacing={1} px={1}>
+              {Profile_Menu.map((el) => (
+                <MenuItem key={el.title}>{el.title}</MenuItem>
+              ))}
+            </Stack>
+          </Menu>
         </Stack>
       </Stack>
     </Box>
