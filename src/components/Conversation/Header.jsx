@@ -11,12 +11,13 @@ import {
   Typography,
 } from "@mui/material";
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from "phosphor-react";
-import React from "react";
 import StyledBadge from "../StyledBadge";
+import { ToggleSidebar } from "../../redux/slices/app";
+import { useDispatch } from "react-redux";
 
 function Header() {
   const theme = useTheme();
-
+  const dispatch=useDispatch()
   return (
     <Box
       p={2}
@@ -36,7 +37,9 @@ function Header() {
         alignItems={"center"}
         sx={{ width: "100%", height: "100%" }}
       >
-        <Stack direction={"row"} spacing={2}>
+        <Stack direction={"row"} spacing={2} onClick={()=>{
+          dispatch(ToggleSidebar())
+        }}>
           <Box>
             <StyledBadge
               overlap="circular"

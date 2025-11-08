@@ -4,19 +4,22 @@ import { BrowserRouter } from "react-router-dom";
 import SettingsProvider from "./contexts/settingsContexts.jsx";
 import ThemeSettings from "./components/settings/index";
 import ThemeProvider from "./theme/index.jsx";
+import { store } from "./redux/store.js";
+import { Provider as ReduxProvider } from "react-redux";
 function App() {
-
   return (
     <>
-       <SettingsProvider>
-      <ThemeProvider>
-        <ThemeSettings>
-          <BrowserRouter>
-            <Router />
-          </BrowserRouter>
-        </ThemeSettings>
-      </ThemeProvider>
-    </SettingsProvider>
+      <ReduxProvider store={store}>
+        <SettingsProvider>
+          <ThemeProvider>
+            <ThemeSettings>
+              <BrowserRouter>
+                <Router />
+              </BrowserRouter>
+            </ThemeSettings>
+          </ThemeProvider>
+        </SettingsProvider>
+      </ReduxProvider>
     </>
   );
 }
