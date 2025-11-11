@@ -11,7 +11,7 @@ function Conversation() {
       <Header />
       {/* messgae */}
       <Box width={"100%"} sx={{ flexGrow: 1,overflow:"auto",scroll }}>
-        <Message />
+        <Message menu={true} />
       </Box>
       {/* chat footer */}
       <Footer />

@@ -4,7 +4,7 @@ import { Message_options } from "../../data";
 import { useState } from "react";
 
 
-function DocMsg({el}) {
+function DocMsg({el,menu=false}) {
   const theme = useTheme();
   return (
     <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
@@ -42,12 +42,12 @@ function DocMsg({el}) {
           </Typography>
         </Stack>
       </Box>
-      <MsgOptions/>
+      {menu && <MsgOptions/>}
     </Stack>
   );
 }
 
-function LinkMsg({ el }) {
+function LinkMsg({ el ,menu=false }) {
   const theme = useTheme();
   return (
     <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
@@ -96,12 +96,12 @@ function LinkMsg({ el }) {
           </Stack>
         </Stack>
       </Box>
-      <MsgOptions/>
+      {menu && <MsgOptions/>}
     </Stack>
   );
 }
 
-function MediaMsg({ el }) {
+function MediaMsg({ el,menu=false }) {
   const theme = useTheme();
   return (
     <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
@@ -129,12 +129,13 @@ function MediaMsg({ el }) {
           </Typography>
         </Stack>
       </Box>
-      <MsgOptions/>
+      {menu && <MsgOptions/>}
+      
     </Stack>
   );
 }
 
-function ReplyMsg({ el }) {
+function ReplyMsg({ el,menu=false }) {
   const theme = useTheme();
   return (
     <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
@@ -171,12 +172,12 @@ function ReplyMsg({ el }) {
           </Typography>
         </Stack>
       </Box>
-      <MsgOptions/>
+      {menu && <MsgOptions/>}
     </Stack>
   );
 }
 
-function TextMessage({ el }) {
+function TextMessage({ el,menu=false }) {
   const theme = useTheme();
   return (
     <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
@@ -197,7 +198,7 @@ function TextMessage({ el }) {
           {el.message}
         </Typography>
       </Box>
-      <MsgOptions/>
+      {menu && <MsgOptions/>}
     </Stack>
   );
 }

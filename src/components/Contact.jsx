@@ -143,7 +143,7 @@ const Contact = () => {
             </Stack>
             <IconButton
               onClick={() => {
-                dispatch(UpdateSidebarType("SHARED"));
+                dispatch(UpdateSidebarType("STARRED"));
               }}
             >
               <CaretRight />
