@@ -20,10 +20,17 @@ import {
   PencilCircle,
 } from "phosphor-react";
 import React from "react";
+import Shortcuts from "../../sections/settings/Shortcuts";
 
 const Settings = () => {
   const theme = useTheme();
-
+  const [openShortcuts, setOpenshortcuts] = React.useState(false);
+  const handleOpenShortcuts = () => {
+    setOpenshortcuts(true);
+  };
+  const handleCloseShortcuts = () => {
+    setOpenshortcuts(false);
+  };
   const List = [
     {
       key: 0,
@@ -66,8 +73,7 @@ const Settings = () => {
       key: 6,
       icon: <Keyboard size={20} />,
       title: "Keyboard Shortcuts",
-    //   onclick: handleOpenShortcuts,
-    onclick:()=>{}
+      onclick: handleOpenShortcuts,
     },
     {
       key: 7,
@@ -115,23 +121,31 @@ const Settings = () => {
           </Stack>
           {/* List of Options */}
           <Stack spacing={4}>
-            {List.map(({key,icon,title,onclick}) => 
+            {List.map(({ key, icon, title, onclick }) => (
               <>
-              <Stack onclick={onclick} sx={{cursor:"pointer"}} key={key} spacing={1}>
-                <Stack direction={"row"} spacing={2} alignItems={"center"}>
+                <Stack
+                  onClick={onclick}
+                  sx={{ cursor: "pointer" }}
+                  key={key}
+                  spacing={1}
+                >
+                  <Stack direction={"row"} spacing={2} alignItems={"center"}>
                     {icon}
-                    <Typography variant="body2">
-                        {title}
-                    </Typography>
+                    <Typography variant="body2">{title}</Typography>
+                  </Stack>
+                  {key !== 7 && <Divider />}
                 </Stack>
-                {key!==7 && <Divider/>}
-              </Stack>
               </>
-        )}
+            ))}
           </Stack>
         </Stack>
       </Box>
       {/* Right Panel */}
+      {openShortcuts&& <Shortcuts
+        open={openShortcuts}
+        handleClose={handleCloseShortcuts}
+      />}
+      
     </Stack>
   );
 };
