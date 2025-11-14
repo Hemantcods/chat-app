@@ -8,7 +8,6 @@ import DashboardLayout from "../layouts/dashboard/index.jsx";
 import { DEFAULT_PATH } from "../config";
 import MainLayout from "../layouts/main/index.jsx";
 
-
 const Loadable = (Component) => (props) => {
   return (
     <Suspense fallback={<div>loading</div>}>
@@ -20,11 +19,12 @@ const Loadable = (Component) => (props) => {
 export default function Router() {
   return useRoutes([
     {
-      path:"/auth",
-      element:<MainLayout/>,
-      children:[
-        {element:<LoginPage/>,path:"login"}
-      ]
+      path: "/auth",
+      element: <MainLayout />,
+      children: [
+        { element: <LoginPage />, path: "login" },
+        { element: <RegisterPage />, path: "register" },
+      ],
     },
     {
       path: "/",
@@ -33,7 +33,7 @@ export default function Router() {
         { element: <Navigate to={DEFAULT_PATH} replace />, index: true },
         { path: "app", element: <GeneralApp /> },
         { path: "settings", element: <Settings /> },
-        
+
         { path: "404", element: <Page404 /> },
         { path: "*", element: <Navigate to="/404" replace /> },
       ],
@@ -43,13 +43,13 @@ export default function Router() {
 }
 
 const GeneralApp = Loadable(
-  lazy(() => import("../pages/dashboard/GenralApp.jsx")),
+  lazy(() => import("../pages/dashboard/GenralApp.jsx"))
 );
 const Settings = Loadable(
-  lazy(() => import("../pages/dashboard/Settings.jsx")),
+  lazy(() => import("../pages/dashboard/Settings.jsx"))
 );
-
-const LoginPage=Loadable(
-  lazy(()=>import("../pages/auth/Login.jsx"))
+const RegisterPage=Loadable(
+  lazy(()=>import("../pages/auth/Register.jsx"))
 )
+const LoginPage = Loadable(lazy(() => import("../pages/auth/Login.jsx")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404.jsx")));
