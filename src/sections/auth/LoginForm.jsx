@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider, { RHFTextField } from "../../components/hook-form";
 import { useForm } from "react-hook-form";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Alert,
   Button,
@@ -77,7 +78,7 @@ const LoginForm = () => {
         />
       </Stack>
       <Stack alignItems={"flex-end"} sx={{ my: 2 }}>
-        <Link variant="body2" color="inherit" underline="always">
+        <Link component={RouterLink} to={"/auth/reset-password"} variant="body2" color="inherit" underline="always">
           Forgot Password?
         </Link>
       </Stack>
