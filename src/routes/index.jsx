@@ -25,6 +25,7 @@ export default function Router() {
         { element: <LoginPage />, path: "login" },
         { element: <RegisterPage />, path: "register" },
         { element: <ResetPassword />, path: "reset-password" },
+        { element: <NewPassword />, path: "new-password" },
       ],
     },
     {
@@ -54,6 +55,9 @@ const RegisterPage=Loadable(
 )
 const ResetPassword = Loadable(
   lazy(() => import("../pages/auth/ResetPassword.jsx"))
+);
+const NewPassword = Loadable(
+  lazy(() => import("../pages/auth/NewPassword.jsx"))
 );
 const LoginPage = Loadable(lazy(() => import("../pages/auth/Login.jsx")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404.jsx")));
