@@ -1,12 +1,8 @@
-import { faker } from "@faker-js/faker";
 import {
-  alpha,
-  Avatar,
   Box,
   Button,
   Divider,
   IconButton,
-  InputBase,
   Stack,
   styled,
   Typography,
@@ -14,10 +10,10 @@ import {
   useTheme,
 } from "@mui/material";
 import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
-import React from "react";
 import { ChatList } from "../../data";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { Search, SearchIconWrapper, StyledInputBase } from "../../components/Search";
+import ChatElemet from "../../components/ChatElement";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
