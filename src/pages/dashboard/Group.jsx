@@ -17,9 +17,14 @@ import { MagnifyingGlass, Plus } from "phosphor-react";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { ChatList } from "../../data";
 import ChatElemet from "../../components/ChatElement";
+import CreateGroup from "../../sections/main/CreateGroup";
 
 const Group = () => {
   const theme = useTheme();
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
   return (
     <>
       <Stack direction={"row"} sx={{ width: "100%" }}>
@@ -55,7 +60,7 @@ const Group = () => {
               <Typography variant="subtitle2" component={Link}>
                 Create New Group
               </Typography>
-              <IconButton>
+              <IconButton onClick={()=>{setOpenDialog(true)}}>
                 <Plus style={{ color: theme.palette.primary.main }} />
               </IconButton>
             </Stack>
@@ -85,6 +90,7 @@ const Group = () => {
         {/* Right Panel*/}
         {/* Todo=> reuse Conversation Componet */}
       </Stack>
+      {openDialog && <CreateGroup open={openDialog} handleClose={handleCloseDialog}/>}
     </>
   );
 };
