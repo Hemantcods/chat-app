@@ -8,6 +8,9 @@ import {
 import { MagnifyingGlass, Plus } from "phosphor-react";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { Link } from "react-router-dom";
+import { CallLogElement } from "../../components/CallElement";
+import { fa, faker } from "@faker-js/faker";
+import { CallLogs } from "../../data";
 
 const Call = () => {
     const theme=useTheme()
@@ -65,7 +68,10 @@ const Call = () => {
                   <Typography variant="subtitle2" color={"#676767"}>
                     Pinned
                   </Typography>
-                  {/* Chat List */}
+                  {/* Call Logs */}
+                  {CallLogs.map((el) => {
+                    return <CallLogElement {...el} key={el.id} />;
+                  })}
                 </Stack>
               </SimpleBarStyle>
             </Stack>

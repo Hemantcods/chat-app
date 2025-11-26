@@ -46,6 +46,90 @@ const Nav_Setting = [
   },
 ];
 
+const CallLogs=[
+  {
+    id:0,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+  {
+    id:1,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+  {
+    id:2,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+  {
+    id:3,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:true,
+    incoming:false,
+  },
+  {
+    id:4,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:false,
+  },
+  {
+    id:5,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+  {
+    id:6,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:false,
+  },
+  {
+    id:7,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+  {
+    id:8,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:true,
+    incoming:true,
+  },
+  {
+    id:9,
+    img:faker.image.avatar(),
+    name:faker.person.firstName(),
+    time:faker.date.recent().toLocaleTimeString(),
+    missed:false,
+    incoming:true,
+  },
+]
+
+
 const ChatList = [
   {
     id: 0,
@@ -319,6 +403,7 @@ export {
   Profile_Menu,
   Nav_Setting,
   Nav_Buttons,
+  CallLogs,
   ChatList,
   Chat_History,
   Message_options,
