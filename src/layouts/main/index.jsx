@@ -4,6 +4,10 @@ import { Outlet } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico"
 
 const MainLayout = () => {
+  const isAuthenticated = true;
+    if (isAuthenticated) {
+      return <Navigate to={"/app"} />;
+    }
   return (
     <>
       <Container sx={{ mt: 5 }} maxWidth={"sm"} >

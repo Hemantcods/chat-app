@@ -1,9 +1,12 @@
-import {Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "./SideBar.jsx";
-
 const DashboardLayout = () => {
+  const isAuthenticated = true;
+  if (!isAuthenticated) {
+    return <Navigate to={"/auth/login"} />;
+  }
   return (
     <Stack
       direction={"row"}
