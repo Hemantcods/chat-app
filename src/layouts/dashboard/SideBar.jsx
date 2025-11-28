@@ -17,23 +17,29 @@ import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch.jsx";
 import { useNavigate } from "react-router-dom";
 
-
-const getPath=(index)=>{
+const getPath = (index) => {
   switch (index) {
     case 0:
-      return "/app"
+      return "/app";
     case 1:
-      return "/group"
+      return "/group";
     case 2:
-      return "/call"
+      return "/call";
     case 3:
-      return "/settings"
+      return "/settings";
   }
-}
+};
 
-
-
-
+const GetMenuPath = (index) => {
+  switch (index) {
+    case 0:
+      return "/profile";
+    case 1:
+      return "/settings";
+    case 2:
+      return "/profile";
+  }
+};
 
 function SideBar() {
   const theme = useTheme();
@@ -94,7 +100,9 @@ function SideBar() {
                   <IconButton
                     sx={{ width: "max-content", color: "#fff" }}
                     key={element.index}
-                    onClick={()=>{navigate(getPath(element.index))}}
+                    onClick={() => {
+                      navigate(getPath(element.index));
+                    }}
                   >
                     {element.icon}
                   </IconButton>
@@ -111,7 +119,7 @@ function SideBar() {
                   key={element.index}
                   onClick={() => {
                     setIndex(element.index);
-                    navigate(getPath(element.index))
+                    navigate(getPath(element.index));
                     console.log(element.index);
                   }}
                 >
@@ -173,12 +181,19 @@ function SideBar() {
                 "aria-labelledby": "basic-button",
               },
             }}
-            anchorOrigin={{vertical:"bottom",horizontal:"right"}}
-            transformOrigin={{vertical:"bottom",horizontal:"left"}}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "bottom", horizontal: "left" }}
           >
             <Stack spacing={1} px={1}>
-              {Profile_Menu.map((el) => (
-                <MenuItem key={el.title}>{el.title}</MenuItem>
+              {Profile_Menu.map((el, index) => (
+                <MenuItem
+                  onClick={() => {
+                    navigate(GetMenuPath(index));
+                  }}
+                  key={el.title}
+                >
+                  {el.title}
+                </MenuItem>
               ))}
             </Stack>
           </Menu>
