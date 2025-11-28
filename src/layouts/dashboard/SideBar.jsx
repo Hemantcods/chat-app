@@ -15,12 +15,31 @@ import { Nav_Buttons, Profile_Menu } from "../../data/index.jsx";
 import { faker } from "@faker-js/faker";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch.jsx";
+import { useNavigate } from "react-router-dom";
+
+
+const getPath=(index)=>{
+  switch (index) {
+    case 0:
+      return "/app"
+    case 1:
+      return "/group"
+    case 2:
+      return "/call"
+    case 3:
+      return "/settings"
+  }
+}
+
+
+
+
 
 function SideBar() {
   const theme = useTheme();
   const { onToggleMode } = useSettings();
   const [index, setIndex] = useState();
-
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -75,6 +94,7 @@ function SideBar() {
                   <IconButton
                     sx={{ width: "max-content", color: "#fff" }}
                     key={element.index}
+                    onClick={()=>{navigate(getPath(element.index))}}
                   >
                     {element.icon}
                   </IconButton>
@@ -91,6 +111,7 @@ function SideBar() {
                   key={element.index}
                   onClick={() => {
                     setIndex(element.index);
+                    navigate(getPath(element.index))
                     console.log(element.index);
                   }}
                 >
