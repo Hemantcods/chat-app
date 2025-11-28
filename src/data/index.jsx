@@ -46,89 +46,127 @@ const Nav_Setting = [
   },
 ];
 
-const CallLogs=[
+const MembersList = [
   {
-    id:0,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
+    id: 0,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: true,
   },
   {
-    id:1,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: false,
   },
   {
-    id:2,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: true,
   },
   {
-    id:3,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:true,
-    incoming:false,
+    id: 3,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: false,
   },
   {
-    id:4,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:false,
+    id: 4,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: true,
   },
   {
-    id:5,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
+    id: 5,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    online: true,
   },
-  {
-    id:6,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:false,
-  },
-  {
-    id:7,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
-  },
-  {
-    id:8,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:true,
-    incoming:true,
-  },
-  {
-    id:9,
-    img:faker.image.avatar(),
-    name:faker.person.firstName(),
-    time:faker.date.recent().toLocaleTimeString(),
-    missed:false,
-    incoming:true,
-  },
-]
+];
 
+const CallLogs = [
+  {
+    id: 0,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 3,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: true,
+    incoming: false,
+  },
+  {
+    id: 4,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: false,
+  },
+  {
+    id: 5,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 6,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: false,
+  },
+  {
+    id: 7,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+  {
+    id: 8,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: true,
+    incoming: true,
+  },
+  {
+    id: 9,
+    img: faker.image.avatar(),
+    name: faker.person.firstName(),
+    time: faker.date.recent().toLocaleTimeString(),
+    missed: false,
+    incoming: true,
+  },
+];
 
 const ChatList = [
   {
@@ -268,7 +306,7 @@ const Chat_History = [
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('cat'),
+    preview: faker.image.avatar("cat"),
     message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
@@ -304,11 +342,11 @@ const Message_options = [
   },
 ];
 
-const Shared_Links=[
-    {
+const Shared_Links = [
+  {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('cat'),
+    preview: faker.image.avatar("cat"),
     message: "Yep, I can also do that.",
     incoming: true,
     outgoing: false,
@@ -316,7 +354,7 @@ const Shared_Links=[
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('dog'),
+    preview: faker.image.avatar("dog"),
     message: "Check this out — it might help!",
     incoming: true,
     outgoing: true,
@@ -324,7 +362,7 @@ const Shared_Links=[
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('rabbit'),
+    preview: faker.image.avatar("rabbit"),
     message: "Here’s a reference I found online.",
     incoming: true,
     outgoing: false,
@@ -332,7 +370,7 @@ const Shared_Links=[
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('fox'),
+    preview: faker.image.avatar("fox"),
     message: "Interesting article on that topic.",
     incoming: true,
     outgoing: true,
@@ -340,7 +378,7 @@ const Shared_Links=[
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('panda'),
+    preview: faker.image.avatar("panda"),
     message: "Can you check this link when you have time?",
     incoming: true,
     outgoing: false,
@@ -348,13 +386,13 @@ const Shared_Links=[
   {
     type: "msg",
     subtype: "link",
-    preview: faker.image.avatar('lion'),
+    preview: faker.image.avatar("lion"),
     message: "Sure, I’ve added the link here.",
     incoming: true,
     outgoing: true,
-  }
-]
-const Shared_Docs=[
+  },
+];
+const Shared_Docs = [
   {
     type: "msg",
     subtype: "doc",
@@ -396,17 +434,18 @@ const Shared_Docs=[
     message: "Perfect, thanks for confirming!",
     incoming: true,
     outgoing: true,
-  }
-]
+  },
+];
 
 export {
   Profile_Menu,
   Nav_Setting,
   Nav_Buttons,
+  MembersList,
   CallLogs,
   ChatList,
   Chat_History,
   Message_options,
   Shared_Docs,
-  Shared_Links
+  Shared_Links,
 };

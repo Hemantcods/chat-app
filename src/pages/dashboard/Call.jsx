@@ -1,4 +1,11 @@
-import { Box, Divider, IconButton, Stack, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 import {
   Search,
@@ -11,9 +18,14 @@ import { Link } from "react-router-dom";
 import { CallLogElement } from "../../components/CallElement";
 import { fa, faker } from "@faker-js/faker";
 import { CallLogs } from "../../data";
+import StartCall from "../../sections/main/StartCall";
 
 const Call = () => {
-    const theme=useTheme()
+  const theme = useTheme();
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   return (
     <>
@@ -32,7 +44,7 @@ const Call = () => {
         >
           <Stack p={3} spacing={2} sx={{ maxHeight: "100vh" }}>
             <Stack>
-              <Typography variant="h5">Groups</Typography>
+              <Typography variant="h5">Calls</Typography>
             </Stack>
             <Stack sx={{ width: "100%" }}>
               <Search>
@@ -48,11 +60,11 @@ const Call = () => {
               alignItems={"center"}
             >
               <Typography variant="subtitle2" component={Link}>
-                Create New Group
+                Start Call
               </Typography>
               <IconButton
                 onClick={() => {
-                  
+                  setOpenDialog(true);
                 }}
               >
                 <Plus style={{ color: theme.palette.primary.main }} />
@@ -77,6 +89,9 @@ const Call = () => {
             </Stack>
           </Stack>
         </Box>
+        {openDialog && (
+          <StartCall open={openDialog} handleClose={handleCloseDialog} />
+        )}
       </Stack>
     </>
   );
