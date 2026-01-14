@@ -4,6 +4,8 @@ import { enUS, frFR, zhCN, viVN, arSD } from '@mui/material/locale';
 // routes
 import { PATH_DASHBOARD } from "./routes/path.jsx";
 
+export const BackendURL=import.meta.env.VITE_BACKEND_URL
+// ----------------------------------------------------------------------
 export const defaultSettings = {
   themeMode: "light",
   themeDirection: "ltr",
