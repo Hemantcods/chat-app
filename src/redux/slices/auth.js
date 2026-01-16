@@ -51,3 +51,10 @@ export function LoginUser(formvalues) {
       });
   };
 }
+
+//Signout
+export function SignOutUser() {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.SignOut());
+  };
+}

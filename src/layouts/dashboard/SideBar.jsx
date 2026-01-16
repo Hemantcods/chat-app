@@ -16,6 +16,8 @@ import { faker } from "@faker-js/faker";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch.jsx";
 import { useNavigate } from "react-router-dom";
+import { SignOutUser } from "../../redux/slices/auth.js";
+import { useDispatch } from "react-redux";
 
 const getPath = (index) => {
   switch (index) {
@@ -42,6 +44,7 @@ const GetMenuPath = (index) => {
 };
 
 function SideBar() {
+  const disptch = useDispatch();
   const theme = useTheme();
   const { onToggleMode } = useSettings();
   const [index, setIndex] = useState();
@@ -189,6 +192,12 @@ function SideBar() {
                 <MenuItem
                   onClick={() => {
                     navigate(GetMenuPath(index));
+                     // if index=2 Logout
+                    if(index===2){
+                      disptch(SignOutUser())
+                    }else{
+                      navigate(GetMenuPath(index));
+                    }
                   }}
                   key={el.title}
                 >
