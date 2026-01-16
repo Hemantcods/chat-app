@@ -58,3 +58,20 @@ export function SignOutUser() {
     dispatch(slice.actions.SignOut());
   };
 }
+
+// forgot password
+export function ForgotPassword(formvalues) {
+  return async (dispatch, getState) => {
+    await axios.post("/api/auth/forgot-password",{
+      ...formvalues
+    },{
+      headers:{
+        "Content-Type":"application/json"
+      }
+    }).then((response)=>{
+      console.log("success",response)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+}
