@@ -5,14 +5,19 @@ import { useForm } from "react-hook-form";
 import FormProvider, { RHFTextField } from "../../components/hook-form";
 import { Button, IconButton, InputAdornment, Link, Stack } from "@mui/material";
 import { Eye, EyeClosed } from "phosphor-react";
+import { ResetPassword } from "../../redux/slices/auth";
+import { useDispatch } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 const NewPasswordForm = () => {
+  const [querryparams]=useSearchParams()
+  const dispatch=useDispatch()
   const [showPassword, setShowPassword] = useState(false);
   const NewPasswordSchema = Yup.object().shape({
     password: Yup.string()
       .min(8, "Password must be at least 8 characters")
       .required("Password is Required"),
-    confirm_password: Yup.string()
+    passwordConfirm: Yup.string()
       .required("Password is Required")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
@@ -30,6 +35,8 @@ const NewPasswordForm = () => {
   const onSubmit = async (data) => {
     try {
       // Submit data to backend
+      console.log(querryparams)
+      dispatch(ResetPassword({...data,token:querryparams.get("token")}))
     } catch (error) {
       console.log(error);
       reset();
@@ -64,7 +71,7 @@ const NewPasswordForm = () => {
           }}
         />
         <RHFTextField
-          name="confirm_password"
+          name="passwordConfirm"
           label="Confirm Password"
           type={showPassword ? "text" : "password"}
           InputProps={{

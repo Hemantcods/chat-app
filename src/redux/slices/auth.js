@@ -75,3 +75,24 @@ export function ForgotPassword(formvalues) {
     })
   }
 }
+
+// New password
+export function ResetPassword(formvalues) {
+  return async (dispatch,getState)=>{
+    axios.post(`/api/auth/reset-password/${formvalues.token}`,{...formvalues},
+      {
+        headers:{
+          "Content-Type":"application/json"
+        }
+      }
+    ).then((response)=>{
+      console.log("success",response)
+      dispatch(slice.actions.login({
+        isLoggedIn:true,
+        token:response.data.token
+      }))
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+}
